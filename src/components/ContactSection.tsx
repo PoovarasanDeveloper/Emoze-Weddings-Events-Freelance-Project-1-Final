@@ -269,7 +269,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
             </div>
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Phone / WhatsApp *
+                Phone / WhatsApp
               </label>
               <div className="relative">
                 <Phone className="w-3.5 h-3.5 text-[#B8C19C] absolute left-2.5 top-2.5 pointer-events-none" />
@@ -285,7 +285,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
             </div>
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Wedding Date *
+                Wedding Date
               </label>
               <div className="relative">
                 <Calendar className="w-3.5 h-3.5 text-[#B8C19C] absolute left-2.5 top-2.5 pointer-events-none" />
@@ -300,7 +300,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
             </div>
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Location / Venue *
+                Location / Venue
               </label>
               <div className="relative">
                 <MapPin className="w-3.5 h-3.5 text-[#B8C19C] absolute left-2.5 top-2.5 pointer-events-none" />
@@ -316,7 +316,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
             </div>
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Email Address *
+                Email Address
               </label>
               <div className="relative">
                 <Mail className="w-3.5 h-3.5 text-[#B8C19C] absolute left-2.5 top-2.5 pointer-events-none" />
@@ -350,7 +350,7 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
             </div>
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Estimated Budget *
+                Estimated Budget
               </label>
               <div className="relative">
                 <Tag className="w-3.5 h-3.5 text-[#B8C19C] absolute left-2.5 top-2.5 pointer-events-none" />
