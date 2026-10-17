@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig(() => {
   return {
+    base: "/Emoze-Weddings-Events-Freelance-Project-1-Final/",
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
