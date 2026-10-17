@@ -130,7 +130,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
               <span className="truncate">{currentSlide.category}</span>
             </div>
 
-            <h1 className="font-0 text-white text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-normal leading-tight sm:leading-[1.15] tracking-normal drop-shadow-md max-w-xs xs:max-w-md sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl whitespace-normal break-words text-left">
+           <h1 className="font-0 text-white text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-normal leading-tight sm:leading-[1.15] tracking-normal drop-shadow-md max-w-xs xs:max-w-md sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl whitespace-normal break-words text-left">
               {currentSlide.title}
             </h1>
 
