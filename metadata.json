@@ -1,6 +1,0 @@
-{
-  "name": "Emoze Weddings",
-  "description": "Luxury wedding photography, films, and storytellers web application for Emoze Weddings & Events.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
