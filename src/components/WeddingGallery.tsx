@@ -65,13 +65,10 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
 
   return (
     <section id="gallery" className="py-20 sm:py-28 bg-[#F3F0DD] text-[#2C251E] relative overflow-hidden scroll-mt-20 md:scroll-mt-24">
-      {/* Background Subtle Accents */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#BD9C7A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[#B8C19C]/15 rounded-full blur-3xl pointer-events-none" />
 
      <div className="max-w-7xl 2xl:max-w-[1700px] 3xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 relative z-10">
-         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-14">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-mild-pill text-[#546135] font-10 tracking-[0.25em] uppercase font-semibold">
             <Sparkles className="w-3.5 h-3.5 text-[#546135]" />
@@ -84,11 +81,7 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
             Every couple has a unique story to tell. Experience our signature candid storytelling as you scroll through our timeless wedding portfolios.
           </p>
         </div>
-
-        {/* Filter Bar - Perfectly Center-Aligned Across All Screen Sizes */}
         <div className="flex items-center justify-center w-full pb-8 sm:pb-12 border-b border-[#EBDEBE] mb-8 sm:mb-12">
-          
-          {/* Category Tabs - Center-aligned capsules with Left & Right scroll arrow keys */}
           <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 w-full max-w-5xl mx-auto">
             <button
               onClick={() => scrollCategories('left')}
@@ -134,8 +127,6 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
           </div>
 
         </div>
-
-        {/* Gallery Grid - Perfectly Aligned Straight Rows */}
         {filteredItems.length === 0 ? (
           <div className="text-center py-20 glass-mild-card border border-[#EBDEBE] rounded-2xl">
             <p className="font-7 text-[#615546]">No stories found matching your filter.</p>
@@ -160,7 +151,6 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                   key={item.id}
                   className="group relative rounded-2xl overflow-hidden glass-mild-card border border-[#EBDEBE] shadow-lg transition-all duration-500 hover:border-[#BD9C7A] hover:shadow-2xl cursor-pointer flex flex-col h-full justify-between"
                 >
-                  {/* Card Image Container */}
                   <div
                     className="relative aspect-[4/3] overflow-hidden bg-[#EBDEBE]"
                     onClick={() => onSelectItem(item)}
@@ -171,12 +161,8 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                       className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
-
-                    {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2C251E]/90 via-[#2C251E]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
 
-                  
-                    {/* Category & Video Badges - Always Single Line & Responsive Across All Devices */}
                     <div className="absolute top-3 xs:top-4 left-3 xs:left-4 right-3 xs:right-4 flex items-center justify-between gap-2 z-10 pointer-events-none">
                       <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full font-10 font-semibold tracking-[0.12em] xs:tracking-[0.16em] sm:tracking-[0.2em] uppercase glass-mild-dark text-[#EBDEBE]/90 border border-[#BD9C7A]/30 text-[10px] xs:text-[11px] sm:text-xs whitespace-nowrap shadow-md inline-flex items-center pointer-events-auto">
                         {item.categoryLabel}
@@ -189,8 +175,6 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                         </span>
                       )}
                     </div>
-
-                    {/* On-Card Prev / Next Photo Buttons */}
                     {item.images && item.images.length > 1 && (
                       <>
                         <button
@@ -211,8 +195,6 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                         </button>
                       </>
                     )}
-
-                    {/* Hover Action Buttons */}
                     <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                       {item.hasVideo && item.videoUrl && (
                         <button
@@ -241,14 +223,10 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                         </span>
                       </button>
                     </div>
-
-                    {/* Image Counter Badge */}
                     <div className="absolute bottom-4 right-4 z-10 px-2.5 py-1 rounded-md glass-mild-dark font-10 text-[#EBDEBE] text-[11px]">
                       Photo {activeImgIdx + 1} of {item.images.length}
                     </div>
                   </div>
-
-                  {/* Card Content Details */}
                   <div className="p-6 space-y-3 flex-1 flex flex-col justify-between" onClick={() => onSelectItem(item)}>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2 font-10 text-[#8C7152] uppercase tracking-wider">
@@ -280,8 +258,6 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
             })}
           </div>
         )}
-
-        {/* Gallery Pagination & Footer Navigation */}
         <div className="mt-14 pt-8 border-t border-[#EBDEBE] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-10 text-xs uppercase tracking-widest text-[#615546]">
             Showing <span className="font-bold text-[#2C251E]">{filteredItems.length}</span> curated wedding {filteredItems.length === 1 ? 'story' : 'stories'}
