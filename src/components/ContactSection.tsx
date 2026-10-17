@@ -288,7 +288,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 <input
                   type="text"
                   required
-                  placeholder="Ananya & Rahul"
+                  placeholder="Vanitha & Nirmal"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full pl-10 pr-4 py-3 rounded-xl glass-mild border border-[#BD9C7A]/40 text-[#2C251E] placeholder-[#8C7152]/60 focus:outline-none focus:border-[#BD9C7A] font-8 text-xs sm:text-sm"
@@ -400,9 +400,9 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
                   className="w-full pl-10 pr-4 py-3 rounded-xl glass-mild border border-[#BD9C7A]/40 text-[#2C251E] placeholder-[#8C7152]/60 focus:outline-none focus:border-[#BD9C7A] font-8 text-xs sm:text-sm"
                 >
                   <option value="₹50,000 - ₹1 Lakh" >₹50,000 - ₹1 Lakh (Intimate)</option>
-                  <option value="₹1.5 Lakhs - ₹2.5 Lakhs" >₹1.5L - ₹2.5 Lakhs</option>
-                  <option value="₹2.5 Lakhs - ₹4 Lakhs" >₹2.5L - ₹4 Lakhs (Popular)</option>
-                  <option value="₹4 Lakhs - ₹7 Lakhs" >₹4L - ₹7 Lakhs (Signature)</option>
+                  <option value="₹1.5 Lakhs - ₹2.5 Lakhs" >₹1.5Lakhs - ₹2.5 Lakhs</option>
+                  <option value="₹2.5 Lakhs - ₹4 Lakhs" >₹2.5Lakhs - ₹4 Lakhs (Popular)</option>
+                  <option value="₹4 Lakhs - ₹7 Lakhs" >₹4Lakhs - ₹7 Lakhs (Signature)</option>
                   <option value="₹7 Lakhs+ (Luxury Destination)" >₹7 Lakhs+ (Destination)</option>
                 </select>
               </div>
@@ -411,7 +411,7 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
             {/* 8. Vision / Notes (Exact same size, height & horizontally parallel to Estimated Budget) */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
-                Vision & Event Notes
+                Vision & Expectations
               </label>
               <div className="relative">
                 <input
