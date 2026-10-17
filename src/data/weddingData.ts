@@ -368,7 +368,7 @@ export const TESTIMONIALS: Testimonial[] = [
     review:
       "An excellent photography service! The whole team are extremely professional. They made our special day even more special and memorable. Down to the initial phone call, their knowledge, to the photography and post production, their customer service was outstanding. I would highly recommend them to all.",
     rating: 5,
-    avatar: "/images/testimonials/sathiskumar.jpg",
+    avatar: "https://ik.imagekit.io/p00v/images/testimonials/sathiskumar.jpg?updatedAt=1792098033151?tr=w-1200,q-80,f-jpg",
     weddingDate: "December 2025",
   },
   {
@@ -379,7 +379,7 @@ export const TESTIMONIALS: Testimonial[] = [
     review:
       "Emoze weddings are truly amazing and the outputs really awesome.... Great Team.... Wishing you all the very best for upcoming events",
     rating: 5,
-    avatar: "/images/testimonials/Haripriya.jpg",
+    avatar: "https://ik.imagekit.io/p00v/images/testimonials/Haripriya.jpg?updatedAt=1792098032691?tr=w-1200,q-80,f-jpg",
     weddingDate: "November 2025",
   },
   {
@@ -390,7 +390,7 @@ export const TESTIMONIALS: Testimonial[] = [
     review:
       "First things is Atomsphere of this office almost Makes You a vibe..great choice for wedding and all events!",
     rating: 5,
-    avatar: "/images/testimonials/Ben_Human.jpg",
+    avatar: "https://ik.imagekit.io/p00v/images/testimonials/Ben_Human.jpg?updatedAt=1792098032901?tr=w-1200,q-80,f-jpg",
     weddingDate: "January 2026",
   },
 ];
