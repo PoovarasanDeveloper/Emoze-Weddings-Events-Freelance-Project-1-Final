@@ -69,7 +69,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
 
   return (
     <section className="relative w-full h-[100dvh] max-h-[100dvh] overflow-hidden bg-black flex flex-col justify-between pt-16 sm:pt-20 lg:pt-22 2xl:pt-28 pb-2 xs:pb-3 sm:pb-4 2xl:pb-6">
-      {/* Background Images / Slides with transition */}
       {HERO_SLIDES.map((slide, idx) => (
         <div
           key={slide.id}
@@ -119,13 +118,10 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
             decoding="async"
             fetchPriority={idx === 0 ? 'high' : 'auto'}
           />
-          {/* Subtle gradient overlays for cinematic mood */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#2C251E] via-[#2C251E]/50 to-black/40" />
           <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
         </div>
       ))}
-
-      {/* Main Content Area */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center text-white">
         <div className="max-w-3xl space-y-4 md:space-y-6">
           {currentSlide?.tag && (
@@ -134,30 +130,19 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
               {currentSlide.tag}
             </div>
           )}
- {/* Category Pill */}
-        {/* Title and Subtitle Container Block - Spacing strictly minimized using space-y-1.5 */}
 <div className="max-w-4xl space-y-1.5 xs:space-y-2 md:space-y-2.5 flex flex-col items-start justify-center">
-  
-  {/* Category Pill */}
   <div className="inline-flex items-center space-x-1.5 sm:space-x-2 px-2.5 py-0.5 xs:px-3 xs:py-1 sm:px-4 sm:py-1.5 2xl:px-6 2xl:py-2.5 rounded-full glass-button text-[#EBDEBE] font-10 tracking-[0.16em] sm:tracking-[0.25em] uppercase font-semibold text-[9px] xs:text-[10px] sm:text-xs md:text-sm 2xl:text-base">
     <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 2xl:w-5 2xl:h-5 text-[#B8C19C] shrink-0" />
     <span className="truncate">{currentSlide.category}</span>
   </div>
-
-  {/* Title - Optimized with automatic line wrapping and standard max-width constraint */}
   <h1 className="font-0 text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal leading-tight sm:leading-[1.15] tracking-normal drop-shadow-md max-w-xs xs:max-w-md sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl whitespace-normal break-words">
     {currentSlide.title}
   </h1>
-
-  {/* Subtitle - Auto wrap matching standard reading boundaries with NO truncation */}
   <p className="font-7 text-[#EBDEBE]/90 font-light text-[12px] xs:text-xs sm:text-sm md:text-base 2xl:text-2xl 3xl:text-3xl max-w-sm xs:max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-2xl 2xl:max-w-3xl leading-snug sm:leading-relaxed tracking-wide whitespace-normal break-words">
     {currentSlide.subtitle}
   </p>
 
 </div>
-
-
-          {/* Action Row */}
           <div className="flex flex-wrap gap-3 pt-2">
             <button
               onClick={onOpenEnquiry}
@@ -187,13 +172,8 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
           </div>
         </div>
       </div>
-
-     
- {/* Bottom Luxury Floating Timeline Capsule (01, 02, 03, 04) - 80% screen width & responsive across all screens */}
       <div className="relative z-30 w-full px-2 sm:px-4 md:px-6 2xl:px-12 flex justify-center shrink-0">
         <div className="w-[80%] max-w-[80%] mx-auto backdrop-blur-2xl bg-black/75 sm:bg-black/65 border border-[#BD9C7A]/40 rounded-full p-1 xs:p-1.5 sm:p-2 2xl:p-3.5 shadow-2xl flex items-center justify-between gap-1 sm:gap-3 md:gap-4 ring-1 ring-white/10 pointer-events-auto">
-          
-          {/* Left: Play/Pause Autoplay & Slide Counter */}
           <div className="flex items-center space-x-1 xs:space-x-1.5 sm:space-x-2 pl-1 sm:pl-2 shrink-0">
             <button
               onClick={toggleAutoplay}
@@ -218,8 +198,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
               <span className="text-[#EBDEBE]/60 text-[9px] xs:text-[10px] sm:text-xs 2xl:text-base">0{HERO_SLIDES.length}</span>
             </div>
           </div>
-
-          {/* Center: Adaptable 01, 02, 03, 04 Numbers & Progress */}
           <div className="flex items-center justify-center gap-1 sm:gap-2 flex-1 overflow-x-auto no-scrollbar py-0.5 px-0.5">
             {HERO_SLIDES.map((slide, idx) => {
               const isActive = idx === currentIndex;
@@ -234,7 +212,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
                   }`}
                   title={slide.title}
                 >
-                  {/* Thumbnail Avatar for active slide on tablet/desktop */}
                   {isActive && (
                     <div className="hidden xs:block w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 2xl:w-8 2xl:h-8 rounded-full overflow-hidden border border-[#2C251E]/30 mr-1 sm:mr-1.5 2xl:mr-2 shrink-0">
                       <img
@@ -253,8 +230,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
                       />
                     </div>
                   )}
-
-                  {/* Numeral: 01, 02, 03, 04 */}
                   <span
                     className={`font-10 tracking-wider sm:tracking-widest font-bold text-[10px] xs:text-[11px] sm:text-xs md:text-sm 2xl:text-lg ${
                       isActive ? 'text-[#2C251E]' : 'group-hover:text-[#BD9C7A] text-[#EBDEBE]/90'
@@ -262,15 +237,11 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
                   >
                     0{idx + 1}
                   </span>
-
-                  {/* Category text on larger screens */}
                   {isActive && (
                     <>
                       <span className="hidden lg:inline-block font-10 font-semibold text-[11px] 2xl:text-sm tracking-wider uppercase ml-1.5 sm:ml-2 mr-1.5 sm:mr-2 truncate max-w-[110px] xl:max-w-[180px] 2xl:max-w-[240px] text-[#2C251E]">
                         {slide.category.split('&')[0]}
                       </span>
-
-                      {/* Smooth Live Countdown Bar - visible across screens */}
                       <div className="w-4 xs:w-5 sm:w-8 md:w-11 2xl:w-16 h-1 2xl:h-1.5 bg-[#2C251E]/25 rounded-full overflow-hidden ml-1 sm:ml-1.5 shrink-0">
                         <div
                           className="h-full bg-[#2C251E] rounded-full transition-all duration-75 ease-linear"
@@ -283,8 +254,6 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
               );
             })}
           </div>
-
-          {/* Right: Prev & Next Circular Controls */}
           <div className="flex items-center space-x-1 sm:space-x-1.5 pr-1 sm:pr-2 shrink-0">
             <button
               onClick={handlePrev}
