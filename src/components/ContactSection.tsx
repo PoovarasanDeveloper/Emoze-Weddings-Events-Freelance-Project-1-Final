@@ -73,7 +73,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
   const buildWhatsAppMessage = (data: typeof formData): string => {
     const lines = [
       `💍 *NEW WEDDING PHOTOGRAPHY ENQUIRY*`,
-      `*${CONTACT_CONFIG.studioName || 'Congratulations Weddings & Events'}*`,
+      `*${CONTACT_CONFIG.studioName || 'Emoze Weddings'}*`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `👤 *Client Name:* ${data.name.trim() || 'Not provided'}`,
       `📱 *Client Phone:* ${data.phone.trim() || 'Not provided'}`,
@@ -94,7 +94,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
 
     lines.push(
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `⚡ *Sent securely from Congratulations Weddings website*`
+      `⚡ *Sent securely from Emoze Weddings webapplication*`
     );
 
     return lines.join('\n');
