@@ -79,13 +79,8 @@ export const StoryModal: React.FC<StoryModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/80 backdrop-blur-md transition-all">
-      {/* Backdrop click to close */}
       <div className="fixed inset-0" onClick={onClose} />
-
-      {/* Main Luxury Modal Dialog - Framed, responsive, NOT occupying full edge-to-edge */}
       <div className="relative z-10 w-full max-w-5xl max-h-[92vh] flex flex-col rounded-3xl overflow-hidden glass-mild-card-dark border border-[#BD9C7A]/40 shadow-2xl animate-scale-up text-[#F3F0DD]">
-        
-        {/* Top Header Bar */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#BD9C7A]/25 glass-mild-dark shrink-0">
           <div className="flex items-center space-x-2.5 min-w-0 pr-3">
             <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#BD9C7A] shrink-0" />
@@ -162,11 +157,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
             </button>
           </div>
         </div>
-
-        {/* Scrollable Content Container */}
         <div className="overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 no-scrollbar">
-          
-          {/* Featured Media Showcase (Cover / Active Image / Video prominently displayed) */}
           <div ref={topFeaturedRef} className="space-y-2">
             <div className="relative w-full rounded-2xl overflow-hidden bg-black/60 border border-[#BD9C7A]/30 shadow-2xl aspect-[16/10] sm:aspect-[16/9] max-h-[460px] flex items-center justify-center">
               
@@ -186,11 +177,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                     className="w-full h-full object-contain sm:object-cover object-center transition-all duration-300"
                     decoding="async"
                   />
-
-                  {/* Gradient vignettes */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
-
-                  {/* Top Overlay Badges */}
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4 flex items-center gap-2 z-10">
                     <span className="px-2.5 xs:px-3 py-1 rounded-full glass-mild-dark text-[#EBDEBE]/90 border border-[#BD9C7A]/30 font-10 uppercase tracking-[0.14em] sm:tracking-widest font-semibold text-[10px] sm:text-xs shadow-md whitespace-nowrap inline-flex items-center">
                       {item.categoryLabel}
@@ -199,8 +186,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                       Photo {activeImageIndex + 1} of {allImages.length}
                     </span>
                   </div>
-
-                  {/* Prev / Next navigation arrows - High visibility pills */}
                   {allImages.length > 1 && (
                     <>
                       <button
@@ -221,8 +206,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                       </button>
                     </>
                   )}
-
-                  {/* Bottom Caption Bar */}
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-[#F3F0DD] z-10">
                     <div className="flex items-center space-x-2 text-xs sm:text-sm font-medium">
                       <MapPin className="w-3.5 h-3.5 text-[#BD9C7A]" />
@@ -241,8 +224,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                 </>
               )}
             </div>
-
-            {/* Dedicated Photo Navigation Control Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl glass-mild-dark border border-[#BD9C7A]/25">
               <button
                 onClick={handlePrevImage}
@@ -273,8 +254,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               </button>
             </div>
           </div>
-
-          {/* Story Narrative & Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 p-5 sm:p-6 rounded-2xl glass-mild-card-dark border border-[#BD9C7A]/25">
             <div className="md:col-span-2 space-y-2.5">
               <h2 className="font-4 text-[#BD9C7A] text-lg sm:text-xl md:text-2xl leading-snug">
@@ -285,8 +264,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                   'Captured with authentic emotion, delicate lighting, and timeless framing. Each photograph holds an indelible memory of love, heritage, and joy.'}
               </p>
             </div>
-
-            {/* Vendors Box */}
             {item.vendors && (
               <div className="p-4 rounded-xl glass-mild border border-[#BD9C7A]/30 space-y-2.5 font-8 text-xs sm:text-sm">
                 <h3 className="font-10 font-bold tracking-[0.2em] uppercase text-[#BD9C7A] pb-1.5 border-b border-[#BD9C7A]/20">
@@ -313,8 +290,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               </div>
             )}
           </div>
-
-          {/* Remaining Images Arranged Dynamically in Order */}
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-[#BD9C7A]/20">
               <div className="flex items-center space-x-2">
@@ -327,8 +302,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                 Click photo to display in main view
               </span>
             </div>
-
-            {/* Dynamic Responsive Gallery Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
               {allImages.map((img, idx) => {
                 const isCurrent = idx === activeImageIndex && !isVideoActive;
@@ -349,11 +322,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                       loading="lazy"
                       decoding="async"
                     />
-
-                    {/* Dark gradient */}
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-
-                    {/* Active photo indicator badge */}
                     {isCurrent ? (
                       <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#BD9C7A] text-[#2C251E] font-10 font-bold uppercase tracking-wider text-[9px] sm:text-[10px] flex items-center space-x-1 shadow-md">
                         <CheckCircle2 className="w-3 h-3" />
@@ -364,8 +333,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                         #{idx + 1}
                       </div>
                     )}
-
-                    {/* Hover text */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <span className="px-3 py-1 rounded-full bg-[#BD9C7A] text-[#2C251E] font-10 font-bold uppercase tracking-wider text-[10px] shadow-lg">
                         View Photo
@@ -376,8 +343,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               })}
             </div>
           </div>
-
-          {/* Previous / Next Wedding Story Switcher */}
           {onPrevStory && onNextStory && (
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl glass-mild-dark border border-[#BD9C7A]/30">
               <button
@@ -403,8 +368,6 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               </button>
             </div>
           )}
-
-          {/* Bottom Booking Callout */}
           <div className="p-6 sm:p-8 rounded-2xl glass-mild-card-dark border border-[#BD9C7A]/30 text-center space-y-3 shadow-xl">
             <Heart className="w-6 h-6 text-[#BD9C7A] mx-auto" />
             <h3 className="font-4 text-[#F3F0DD] text-lg sm:text-xl font-light">
