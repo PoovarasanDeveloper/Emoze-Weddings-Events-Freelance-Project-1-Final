@@ -7,7 +7,7 @@ export interface SlideItem {
   subtitle: string;
   tag?: string;
   videoUrl?: string;
-  position?: string; // Add this property mapping
+  position?: string; 
 }
 
 
@@ -91,14 +91,6 @@ export const ABOUT_SECTION_DATA = ABOUT_DATA;
  * ========================================================
  * WHATSAPP & ENQUIRY CONTACT CONFIGURATION (SAFE & SECURE)
  * ========================================================
- * Website contact form-la visitor details fill panni submit
- * pannumpothu, antha data automatic-a indha WhatsApp number-ku
- * formatted message-a instant-a send aagum!
- * 
- * - whatsappNumber: 10-12 digit WhatsApp number with country code
- *   (Example: '916380664332' or '919876543210' - without '+', spaces, or dashes)
- * - displayPhone: Website UI-la display aagura number
- * - email: Studio official enquiry email
  */
 export const CONTACT_CONFIG: ContactConfig = {
   //WhatsApp Number-ai inga change pannalam:
@@ -315,14 +307,6 @@ export const GALLERY_ITEMS: WeddingGalleryItem[] = [
 
 
 /**
-  
- * ✅ Option 1 (Normal browser link): https://www.youtube.com/watch?v=VIDEO_ID
- * ✅ Option 2 (Mobile / Share link): https://youtu.be/VIDEO_ID
- * ✅ Option 3 (YouTube Shorts link): https://youtube.com/shorts/VIDEO_ID
- * ✅ Option 4 (Direct Embed link):  https://www.youtube.com/embed/VIDEO_ID
- * ✅ Option 5 (Video ID mattum):    'S43-3qf1L0E'
- * 
- * 💡 ImageKit Tip for Thumbnails:
  * Thumbnails-ku ImageKit link kudukkumpothu, '?tr=w-800,q-80,f-jpg' nu use pannunga.
  */
 export const FILMS: FilmItem[] = [
