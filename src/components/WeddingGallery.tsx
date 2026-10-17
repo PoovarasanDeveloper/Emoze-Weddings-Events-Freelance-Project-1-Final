@@ -64,24 +64,24 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
   ];
 
   return (
-    <section id="gallery" className="py-20 sm:py-28 bg-[#F3F0DD] text-[#2C251E] relative overflow-hidden scroll-mt-20 md:scroll-mt-24">
+    <section id="gallery" className="py-10 sm:py-12 lg:py-14 bg-[#F3F0DD] text-[#2C251E] relative overflow-hidden scroll-mt-16 md:scroll-mt-20">
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#BD9C7A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[#B8C19C]/15 rounded-full blur-3xl pointer-events-none" />
 
-     <div className="max-w-7xl 2xl:max-w-[1700px] 3xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 relative z-10">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-14">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-mild-pill text-[#546135] font-10 tracking-[0.25em] uppercase font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-[#546135]" />
+      <div className="w-full max-w-[96%] sm:max-w-7xl 2xl:max-w-[1850px] 3xl:max-w-[2200px] mx-auto px-2 xs:px-2.5 sm:px-4 lg:px-6 2xl:px-8 relative z-10">
+                <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-2.5 mb-4 sm:mb-6 px-2">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-mild-pill text-[#546135] font-10 tracking-[0.22em] uppercase font-semibold text-[10px] sm:text-xs">
+            <Sparkles className="w-3 h-3 text-[#546135]" />
             <span>Curated Portfolio</span>
           </div>
-          <h2 className="text-5xl font-2 font-light text-[#2C251E] tracking-wide">
+          <h2 className="font-2 font-light text-[#2C251E] tracking-wide text-2xl sm:text-3xl md:text-3.5xl">
             Wedding Gallery
           </h2>
-          <p className="font-7 text-[#615546] font-light leading-relaxed">
-            Every couple has a unique story to tell. Experience our signature candid storytelling as you scroll through our timeless wedding portfolios.
+          <p className="font-7 text-[#615546] font-light leading-relaxed text-xs sm:text-sm max-w-2xl mx-auto">
+            Every couple has a unique story to tell. Experience our signature candid storytelling through our timeless wedding portfolios.
           </p>
         </div>
-        <div className="flex items-center justify-center w-full pb-8 sm:pb-12 border-b border-[#EBDEBE] mb-8 sm:mb-12">
+        <div className="flex items-center justify-center w-full pb-3 sm:pb-4 border-b border-[#EBDEBE] mb-4 sm:mb-5">
           <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 w-full max-w-5xl mx-auto">
             <button
               onClick={() => scrollCategories('left')}
@@ -94,16 +94,16 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
 
             <div
               ref={categoryScrollRef}
-              className="overflow-x-auto py-2 sm:py-3 px-1 scroll-smooth no-scrollbar max-w-full"
+              className="overflow-x-auto py-1 sm:py-1.5 px-1 scroll-smooth no-scrollbar max-w-full"
             >
-              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 p-1 min-w-max mx-auto">
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 p-1 min-w-max mx-auto">
                 {categories.map((cat) => {
                   const isActive = selectedCategory === cat.id;
                   return (
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-10 tracking-[0.14em] sm:tracking-[0.16em] uppercase font-semibold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                      className={`px-3 sm:px-4.5 py-1.5 sm:py-2 rounded-full font-10 tracking-[0.14em] sm:tracking-[0.16em] uppercase font-semibold text-xs whitespace-nowrap transition-all duration-300 cursor-pointer ${
                         isActive
                           ? 'bg-[#BD9C7A] text-[#2C251E] shadow-md ring-2 ring-[#BD9C7A] ring-offset-2 ring-offset-[#F3F0DD]'
                           : 'glass-mild text-[#5E5344] hover:bg-[#E2E7BD] hover:text-[#2C251E] border border-[#BD9C7A]/30'
@@ -128,18 +128,18 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
 
         </div>
         {filteredItems.length === 0 ? (
-          <div className="text-center py-20 glass-mild-card border border-[#EBDEBE] rounded-2xl">
+          <div className="text-center py-16 glass-mild-card border border-[#EBDEBE] rounded-2xl">
             <p className="font-7 text-[#615546]">No stories found matching your filter.</p>
             <button
               onClick={() => setSelectedCategory('all')}
-              className="mt-4 px-6 py-2.5 rounded-full bg-[#BD9C7A] text-[#2C251E] font-10 uppercase tracking-wider font-semibold cursor-pointer shadow-md"
+              className="mt-4 px-6 py-2 rounded-full bg-[#BD9C7A] text-[#2C251E] font-10 uppercase tracking-wider font-semibold cursor-pointer shadow-md text-xs"
             >
               Reset Filters
             </button>
           </div>
         ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:gap-10 2xl:gap-12 items-stretch">
-             {filteredItems.map((item) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-4.5 lg:gap-5.5 2xl:gap-6 items-stretch">
+            {filteredItems.map((item) => {
               const activeImgIdx = cardPhotoIndices[item.id] || 0;
               const currentCardImg =
                 item.images && item.images.length > 0
@@ -149,107 +149,114 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
               return (
                 <div
                   key={item.id}
-                  className="group relative rounded-2xl overflow-hidden glass-mild-card border border-[#EBDEBE] shadow-lg transition-all duration-500 hover:border-[#BD9C7A] hover:shadow-2xl cursor-pointer flex flex-col h-full justify-between"
+                  className="group relative rounded-2xl sm:rounded-3xl overflow-hidden glass-mild-card border border-[#EBDEBE] shadow-md transition-all duration-500 hover:border-[#BD9C7A] hover:shadow-2xl cursor-pointer flex flex-col h-full justify-between"
                 >
                   <div
-                    className="relative aspect-[4/3] overflow-hidden bg-[#EBDEBE]"
+                    className="relative aspect-[16/11] overflow-hidden bg-[#2C251E]/10"
                     onClick={() => onSelectItem(item)}
                   >
                     <img
                       src={currentCardImg}
                       alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
                       loading="lazy"
+                      decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C251E]/90 via-[#2C251E]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-
-                    <div className="absolute top-3 xs:top-4 left-3 xs:left-4 right-3 xs:right-4 flex items-center justify-between gap-2 z-10 pointer-events-none">
-                      <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full font-10 font-semibold tracking-[0.12em] xs:tracking-[0.16em] sm:tracking-[0.2em] uppercase glass-mild-dark text-[#EBDEBE]/90 border border-[#BD9C7A]/30 text-[10px] xs:text-[11px] sm:text-xs whitespace-nowrap shadow-md inline-flex items-center pointer-events-auto">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C251E]/80 via-transparent to-[#2C251E]/20 opacity-70 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute top-2 left-2 right-2 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
+                      <span className="px-2 py-0.5 rounded-full font-10 font-semibold tracking-[0.12em] uppercase glass-mild-dark text-[#EBDEBE]/95 border border-[#BD9C7A]/30 text-[8px] xs:text-[9px] sm:text-[10px] whitespace-nowrap shadow-md inline-flex items-center pointer-events-auto">
                         {item.categoryLabel}
                       </span>
 
                       {item.hasVideo && (
-                        <span className="p-1.5 xs:p-2 rounded-full bg-[#2c251ed1] text-[#EBDEBE]/90 shadow-md shrink-0 flex items-center justify-center pointer-events-auto" title="Has Film">
-                          <Film className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
-   
+                        <span className="p-1 rounded-full bg-[#BD9C7A] text-[#2C251E] shadow-md shrink-0 flex items-center justify-center pointer-events-auto" title="Has Film">
+                          <Film className="w-3 h-3" />
                         </span>
                       )}
                     </div>
+
                     {item.images && item.images.length > 1 && (
                       <>
                         <button
                           onClick={(e) => handleCardPrevPhoto(e, item.id, item.images.length)}
-                          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 hover:bg-[#BD9C7A] text-[#F3F0DD] hover:text-[#2C251E] flex items-center justify-center z-30 transition-all opacity-0 group-hover:opacity-100 shadow-md cursor-pointer border border-[#BD9C7A]/40"
+                          className="absolute left-1.5 top-1/2 -translate-y-1/2 w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-black/75 hover:bg-[#BD9C7A] text-[#F3F0DD] hover:text-[#2C251E] flex items-center justify-center z-30 transition-all opacity-80 sm:opacity-0 sm:group-hover:opacity-100 shadow-md cursor-pointer border border-[#BD9C7A]/40"
                           title="Previous photo in this wedding"
                           aria-label="Previous photo"
                         >
-                          <ChevronLeft className="w-4 h-4" />
+                          <ChevronLeft className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={(e) => handleCardNextPhoto(e, item.id, item.images.length)}
-                          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 hover:bg-[#BD9C7A] text-[#F3F0DD] hover:text-[#2C251E] flex items-center justify-center z-30 transition-all opacity-0 group-hover:opacity-100 shadow-md cursor-pointer border border-[#BD9C7A]/40"
+                          className="absolute right-1.5 top-1/2 -translate-y-1/2 w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-black/75 hover:bg-[#BD9C7A] text-[#F3F0DD] hover:text-[#2C251E] flex items-center justify-center z-30 transition-all opacity-80 sm:opacity-0 sm:group-hover:opacity-100 shadow-md cursor-pointer border border-[#BD9C7A]/40"
                           title="Next photo in this wedding"
                           aria-label="Next photo"
                         >
-                          <ChevronRight className="w-4 h-4" />
+                          <ChevronRight className="w-3.5 h-3.5" />
                         </button>
                       </>
                     )}
-                    <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <div className="absolute inset-x-0 bottom-1.5 sm:bottom-2 flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 z-20 pointer-events-auto opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-2 sm:group-hover:translate-y-0">
                       {item.hasVideo && item.videoUrl && (
                         <button
+                          type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             onPlayVideo(item.videoUrl!, item.title);
                           }}
-                                                   className="px-3 xs:px-4 py-2 xs:py-2.5 rounded-full bg-[#BD9C7A] text-[#2C251E] hover:bg-[#A38362] cursor-pointer flex items-center space-x-1.5 xs:space-x-2 shadow-lg transition-transform hover:scale-105 active:scale-95 text-xs sm:text-sm font-10 font-bold uppercase tracking-wider shrink-0"
-                          title="Play Film"
+                          className="px-2 xs:px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#BD9C7A] text-[#2C251E] hover:bg-[#A38362] active:scale-95 cursor-pointer flex items-center space-x-1 shadow-xl transition-all text-[9px] xs:text-[10px] font-10 font-bold uppercase tracking-wider shrink-0 border border-[#EBDEBE]/40"
+                          title="Play Wedding Film"
+                          aria-label="Play Film"
                         >
-                          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current translate-x-0.5" />
-                          <span className="font-10 font-bold uppercase tracking-wider pr-0.5">
-   Film
+                          <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current translate-x-0.5" />
+                          <span className="font-10 font-bold uppercase tracking-wider">
+                            Film
                           </span>
                         </button>
                       )}
 
                       <button
-                        onClick={() => onSelectItem(item)}
-                                                className="px-3 xs:px-4 py-2 xs:py-2.5 rounded-full bg-[#FAF7ED] text-[#2C251E] hover:bg-[#EBDEBE] cursor-pointer flex items-center space-x-1.5 xs:space-x-2 shadow-lg transition-transform hover:scale-105 active:scale-95 text-xs sm:text-sm font-10 font-bold uppercase tracking-wider shrink-0"
-                        title="View Gallery"
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectItem(item);
+                        }}
+                        className="px-2 xs:px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#FAF7ED]/95 hover:bg-[#FAF7ED] text-[#2C251E] active:scale-95 cursor-pointer flex items-center space-x-1 shadow-xl transition-all text-[9px] xs:text-[10px] font-10 font-bold uppercase tracking-wider shrink-0 border border-[#BD9C7A]/40 backdrop-blur-sm"
+                        title="View Full Story & Photos"
+                        aria-label="View Photos"
                       >
-                        <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C7152]" />
-                        <span className="font-10 font-bold uppercase tracking-wider pr-0.5">
+                        <Eye className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#8C7152]" />
+                        <span className="font-10 font-bold uppercase tracking-wider">
                           Photos ({item.images.length})
                         </span>
                       </button>
                     </div>
-                    <div className="absolute bottom-4 right-4 z-10 px-2.5 py-1 rounded-md glass-mild-dark font-10 text-[#EBDEBE] text-[11px]">
+                    <div className="absolute bottom-2 right-2 sm:bottom-auto sm:top-2 sm:right-2 z-10 px-1.5 py-0.5 rounded-md glass-mild-dark font-10 text-[#EBDEBE] text-[8px] xs:text-[9px] pointer-events-none hidden sm:block">
                       Photo {activeImgIdx + 1} of {item.images.length}
                     </div>
                   </div>
-                  <div className="p-6 space-y-3 flex-1 flex flex-col justify-between" onClick={() => onSelectItem(item)}>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2 font-10 text-[#8C7152] uppercase tracking-wider">
-                        <MapPin className="w-3.5 h-3.5 text-[#BD9C7A]" />
-                        <span>{item.location}</span>
-                        {item.storyDate && <span>• {item.storyDate}</span>}
+                  <div className="p-2.5 xs:p-3 sm:p-3.5 lg:p-4 space-y-1 sm:space-y-1.5 flex-1 flex flex-col justify-between" onClick={() => onSelectItem(item)}>
+                    <div className="space-y-0.5 sm:space-y-1">
+                      <div className="flex items-center space-x-1 sm:space-x-1.5 font-10 text-[#8C7152] uppercase tracking-wider text-[9px] xs:text-[10px] sm:text-xs">
+                        <MapPin className="w-3 h-3 text-[#BD9C7A] shrink-0" />
+                        <span className="truncate">{item.location}</span>
+                        {item.storyDate && <span className="opacity-70">• {item.storyDate}</span>}
                       </div>
 
-                      <h3 className="font-6 font-normal text-[#2C251E] group-hover:text-[#8C7152] transition-colors leading-snug">
+                      <h3 className="font-6 text-xs xs:text-sm sm:text-base lg:text-[17px] font-normal text-[#2C251E] group-hover:text-[#8C7152] transition-colors leading-snug line-clamp-1">
                         {item.title}
                       </h3>
 
-                      <p className="font-9 text-[#615546] font-light line-clamp-2 leading-relaxed">
+                      <p className="font-9 text-[10px] xs:text-[11px] sm:text-xs lg:text-[13px] text-[#615546] font-light line-clamp-1 leading-relaxed">
                         {item.subtitle}
                       </p>
                     </div>
 
-                    <div className="pt-3 flex items-center justify-between font-10 text-[#8C7152] font-semibold tracking-widest uppercase border-t border-[#EBDEBE]">
-                      <span className="group-hover:translate-x-1 transition-transform inline-flex items-center space-x-1.5">
+                    <div className="pt-1.5 sm:pt-2 flex items-center justify-between font-10 text-[#8C7152] font-semibold tracking-widest uppercase border-t border-[#EBDEBE]/70 text-[9px] xs:text-[10px] sm:text-xs">
+                      <span className="group-hover:translate-x-1 transition-transform inline-flex items-center space-x-1">
                         <span>Read Full Story</span>
                         <span>→</span>
                       </span>
-                      <Heart className="w-3.5 h-3.5 text-[#BD9C7A] group-hover:scale-110 transition-transform" />
+                      <Heart className="w-3 h-3 text-[#BD9C7A] group-hover:scale-110 transition-transform" />
                     </div>
                   </div>
 
@@ -258,41 +265,9 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
             })}
           </div>
         )}
-        <div className="mt-14 pt-8 border-t border-[#EBDEBE] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-10 text-xs uppercase tracking-widest text-[#615546]">
-            Showing <span className="font-bold text-[#2C251E]">{filteredItems.length}</span> curated wedding {filteredItems.length === 1 ? 'story' : 'stories'}
-          </p>
-
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={() => {
-                const currentIndex = categories.findIndex((c) => c.id === selectedCategory);
-                const prevIndex = (currentIndex - 1 + categories.length) % categories.length;
-                setSelectedCategory(categories[prevIndex].id);
-              }}
-              className="flex items-center space-x-1.5 px-4 py-2 rounded-full glass-mild text-[#5E5344] hover:bg-[#BD9C7A] hover:text-[#2C251E] border border-[#BD9C7A]/30 transition-all font-10 font-bold uppercase tracking-wider text-xs cursor-pointer shadow-sm"
-              title="Previous Category"
-            >
-              <ChevronLeft className="w-3.5 h-3.5" />
-              <span>Prev Category</span>
-            </button>
-
-            <button
-              onClick={() => {
-                const currentIndex = categories.findIndex((c) => c.id === selectedCategory);
-                const nextIndex = (currentIndex + 1) % categories.length;
-                setSelectedCategory(categories[nextIndex].id);
-              }}
-              className="flex items-center space-x-1.5 px-4 py-2 rounded-full glass-mild text-[#5E5344] hover:bg-[#BD9C7A] hover:text-[#2C251E] border border-[#BD9C7A]/30 transition-all font-10 font-bold uppercase tracking-wider text-xs cursor-pointer shadow-sm"
-              title="Next Category"
-            >
-              <span>Next Category</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
 
       </div>
     </section>
   );
 };
+
