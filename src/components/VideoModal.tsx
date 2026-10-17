@@ -59,13 +59,8 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 bg-black/80 backdrop-blur-md transition-all">
-      {/* Dark Glass Overlay Backdrop */}
       <div className="fixed inset-0" onClick={onClose} />
-
-      {/* Modal Container - Responsive, not occupying full edge-to-edge screen */}
       <div className="relative z-10 w-full max-w-4xl max-h-[92vh] flex flex-col glass-mild-card-dark rounded-3xl overflow-hidden shadow-2xl border border-[#BD9C7A]/40 animate-scale-up text-[#F3F0DD]">
-        
-        {/* Header Bar */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#BD9C7A]/20 glass-mild-dark shrink-0">
           <div className="flex items-center space-x-2.5 min-w-0 pr-3">
             <Film className="w-4 h-4 sm:w-5 sm:h-5 text-[#BD9C7A] shrink-0" />
@@ -87,11 +82,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
-
-        {/* Scrollable Modal Body */}
         <div className="overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 no-scrollbar">
-          
-          {/* Prominent Video Player Display */}
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-[#BD9C7A]/30 shadow-2xl">
             <iframe
               src={getEmbedVideoUrl(activeUrl, true)}
@@ -101,8 +92,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               allowFullScreen
             />
           </div>
-
-          {/* Film Details & Narrative */}
           <div className="p-4 sm:p-5 rounded-2xl glass-mild-dark border border-[#BD9C7A]/20 space-y-2.5">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h4 className="font-4 text-base sm:text-lg text-[#F3F0DD]">
@@ -135,8 +124,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               {currentFilm.description}
             </p>
           </div>
-
-          {/* Remaining Wedding Films Arranged Dynamically in Order */}
           <div className="space-y-3.5">
             <div className="flex items-center justify-between pb-1 border-b border-[#BD9C7A]/20">
               <div className="flex items-center space-x-2">
@@ -149,8 +136,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 Click film to play in player above
               </span>
             </div>
-
-            {/* Dynamic Grid of remaining films */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {FILMS.map((film) => {
                 const isCurrent = film.videoUrl === activeUrl;
@@ -167,7 +152,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                         : 'border border-[#BD9C7A]/25 hover:border-[#BD9C7A] hover:scale-[1.01]'
                     }`}
                   >
-                    {/* Thumbnail */}
                     <div className="relative aspect-video w-full overflow-hidden bg-black">
                       <img
                         src={filmThumb}
@@ -182,8 +166,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                         }}
                       />
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
-
-                      {/* Duration / Active Badge */}
                       <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-black/70 text-[#EBDEBE] font-10 text-[9px] flex items-center space-x-1">
                         <Clock className="w-2.5 h-2.5 text-[#BD9C7A]" />
                         <span>{filmDuration}</span>
@@ -202,8 +184,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                         </div>
                       )}
                     </div>
-
-                    {/* Meta info */}
                     <div className="p-3 space-y-1">
                       <h5 className="font-6 text-xs sm:text-sm text-[#F3F0DD] line-clamp-1 group-hover:text-[#BD9C7A] transition-colors">
                         {film.title}
@@ -219,8 +199,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           </div>
 
         </div>
-
-        {/* Footer info bar */}
         <div className="px-4 sm:px-6 py-3 glass-mild-dark flex items-center justify-between font-10 text-[#EBDEBE]/70 border-t border-[#BD9C7A]/20 shrink-0 text-xs">
           <span className="flex items-center space-x-1.5 text-[#BD9C7A] uppercase tracking-widest text-[10px] sm:text-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#BD9C7A]" />
