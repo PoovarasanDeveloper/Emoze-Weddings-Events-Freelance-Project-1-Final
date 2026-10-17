@@ -157,23 +157,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
 
   const formCard = (
     <div className="w-[92%] sm:w-[94%] md:w-full max-w-4xl mx-auto p-3 xs:p-3.5 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl border border-[#8FA368]/60 glass-mild-card backdrop-blur-2xl text-[#FAF7ED] box-border relative overflow-hidden">
-      
-      {/* Ambient Luxury Green Glows */}
       <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full  blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-48 h-48 rounded-full blur-3xl pointer-events-none" />
-
-      {/* =========================================================================
-          TOP HEADER: 100% Zero Overlap Guarantee
-          - Left: 177x177 Square Brand Logo + "Tell Your Story" Glass Pill + "Book Your Wedding Dates" Heading
-          - Right: Standalone Close Button Pinned to TOP END of Card on all screens
-         ========================================================================= */}
       <div className="flex items-start justify-between pb-2.5 sm:pb-3 border-b border-[#8FA368]/30 mb-3 sm:mb-3.5 gap-2.5 sm:gap-4 relative z-10">
-        
-        {/* Left Side: Brand Logo + Titles */}
         <div className="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0 flex-1">
-          {/* 177x177 Square Brand Logo in Green Glass Emblem */}
           <div className="shrink-0 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl flex items-center justify-center">
-          {/*  <div className="shrink-0 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-[#172213]/80 border border-[#9CAE74]/40 shadow-inner flex items-center justify-center"> */}
             <BrandLogo
               size="square-177"
               isSquare={true}
@@ -183,23 +171,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
               showSubtitle={false}
             />
           </div>
-
-          {/* Heading Stack: Tell Your Story Glass Card + Responsive Heading */}
           <div className="min-w-0 flex-1 flex flex-col justify-center leading-none">
-            {/* Tell Your Story Glass Pill Card */}
             <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 sm:py-1 rounded-full glass-mild-pill text-[#546135] font-10 backdrop-blur-md border border-[#9CAE74]/60 font-bold uppercase tracking-wider text-[9px] xs:text-[10px] sm:text-xs mb-1 shadow-sm w-fit">
               <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#546135] shrink-0 animate-pulse" />
               <span>Tell Your Story</span>
             </div>
-
-            {/* Responsive "Book Your Wedding Dates" Heading */}
             <h2 className="font-3 text-[black] text-sm xs:text-base sm:text-xl md:text-2xl leading-tight truncate sm:whitespace-normal">
               Book Your Wedding Dates
             </h2>
           </div>
         </div>
-
-        {/* Right Side: Standalone Close Button at Top End of the Card */}
         {onClose && (
           <button
             type="button"
@@ -268,17 +249,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
           </div>
         </div>
       ) : (
-        /* =========================================================================
-            RESPONSIVE FORM:
-            - Fits 100% on a single screen without endless scrolling!
-            - Paired 2-column layout across all mobile and desktop screens!
-            - Row 4: Estimated Budget & Vision Notes are PARALLEL, same width, identical size!
-            - Budget dropdown includes '₹50,000 - ₹1 Lakh' tier!
-           ========================================================================= */
         <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-2.5 relative z-10">
           <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3">
-            
-            {/* 1. Name */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Your Name *
@@ -295,8 +267,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 />
               </div>
             </div>
-
-            {/* 2. Phone */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Phone / WhatsApp *
@@ -313,8 +283,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 />
               </div>
             </div>
-
-            {/* 3. Event / Wedding Date */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Wedding Date *
@@ -330,8 +298,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 />
               </div>
             </div>
-
-            {/* 4. Location / Venue */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Location / Venue *
@@ -348,8 +314,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 />
               </div>
             </div>
-
-            {/* 5. Email Address */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Email Address *
@@ -366,8 +330,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isOpen, onClose 
                 />
               </div>
             </div>
-
-            {/* 6. Event Type */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Coverage Type
@@ -386,8 +348,6 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
                 </select>
               </div>
             </div>
-
-            {/* 7. Estimated Budget (Exact same size and parallel to Vision Notes) */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Estimated Budget *
@@ -407,8 +367,6 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
                 </select>
               </div>
             </div>
-
-            {/* 8. Vision / Notes (Exact same size, height & horizontally parallel to Estimated Budget) */}
             <div className="col-span-1">
               <label className="block font-10 uppercase tracking-wider text-[black] mb-1 font-semibold text-[10px] sm:text-xs truncate h-4 sm:h-4.5 flex items-center">
                 Vision & Expectations
@@ -425,8 +383,6 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
             </div>
 
           </div>
-
-          {/* 9. Submit Button - Visible on screen without endless scrolling */}
           <div className="pt-1 sm:pt-1.5">
             <button
               type="submit"
@@ -446,10 +402,7 @@ className="w-full pl-7.5 sm:pl-8 pr-2 py-1.5 sm:py-2 rounded-xl glass-mild borde
   if (isOpen === true) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-2.5 sm:p-4 md:p-6 overflow-y-auto overscroll-contain">
-        {/* Backdrop - Clicking outside closes modal */}
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
-
-        {/* Modal Box: Fits comfortably on screen down to 320px width */}
         <div className="relative z-10 w-full max-w-4xl my-auto max-h-[96dvh] overflow-y-auto no-scrollbar py-1">
           {formCard}
         </div>
