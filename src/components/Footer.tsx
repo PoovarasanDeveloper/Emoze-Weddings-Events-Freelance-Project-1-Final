@@ -27,7 +27,6 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer id="footer" className="bg-[#2C251E] text-[#F3F0DD] border-t border-[#BD9C7A]/20 pt-16 pb-12 relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl 2xl:max-w-[1700px] 3xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
-        {/* Top Callout & Locations */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
@@ -78,8 +77,6 @@ export const Footer: React.FC<FooterProps> = ({
               </p>
             </div>
           </div>
-
-          {/* Location 2: Chennai & Dubai */}
           <div className="space-y-3 text-xs">
             <h4 className="font-mono font-bold tracking-[0.2em] uppercase text-[#BD9C7A]">
               EMAIL
