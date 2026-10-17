@@ -142,7 +142,7 @@ export const HeroSlideshow: React.FC<HeroSlideshowProps> = ({
           <div className="flex flex-wrap gap-3 pt-2 text-left">
             <button
               onClick={onOpenEnquiry}
-              className="inline-flex items-center gap-2 bg-[#BD9C7A] hover:bg-[#A38362] text-[#2C251E] font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer font-10 uppercase tracking-wider text-xs sm:text-sm"
+              className="inline-flex items-center gap-2 glass-mild-pill hover:bg-[#A38362] text-[#2C251E] font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer font-10 uppercase tracking-wider text-xs sm:text-sm"
             >
               Book Your Date
               <ArrowRight className="w-4 h-4" />
