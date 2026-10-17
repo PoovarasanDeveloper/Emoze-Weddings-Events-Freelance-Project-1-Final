@@ -45,7 +45,11 @@ export const TestimonialsSection: React.FC = () => {
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-[#BD9C7A] shadow-md"
             />
             <div className="text-left">
-              <h4 className="font-6 text-[#2C251E] tracking-wider uppercase text-xs sm:text-sm md:text-base">
+
+              <h2 className="font-6 text-[#2C251E] tracking-wider uppercase text-sm md:text-lg md:text-base">
+                {current.reviewby}
+              </h2>
+              <h4 className="font-6 text-[#2C251E] tracking-wider uppercase text-xs md:text-sm md:text-base">
                 {current.names}
               </h4>
               <p className="font-10 text-[#615546] text-[11px] sm:text-xs">
