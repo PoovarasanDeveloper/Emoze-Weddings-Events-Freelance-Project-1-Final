@@ -37,14 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
       }`}
     >
       <div className="w-full max-w-7xl 2xl:max-w-[1700px] 3xl:max-w-[2200px] mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 lg:gap-6">
-        
-        {/* =========================================================================
-            1. LEFT CORNER
-            - Mobile: Drawer Menu Button (Matches right Book button dimensions exactly)
-            - Desktop: Congratulations Branding (Left Corner)
-           ========================================================================= */}
         <div className="flex items-center justify-start flex-shrink-0">
-          {/* Mobile Menu Button - Symmetrical with right corner Book button */}
           <button
             onClick={onOpenSidebar}
             className="md:hidden flex items-center justify-center space-x-1.5 h-10 px-3 xs:px-3.5 rounded-full glass-button border border-[#BD9C7A]/30 text-[#F3F0DD] hover:bg-[#BD9C7A]/30 transition-all cursor-pointer shrink-0 shadow-sm active:scale-95 min-w-[76px] xs:min-w-[82px]"
@@ -55,10 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
               MENU
             </span>
           </button>
-
-          {/* Desktop & Tablet: Congratulations Branding (Left Corner) */}
           <div className="hidden md:flex items-center p-0 m-0">
-            {/* // Size-a perusaaka 'lg' illa 'xl' nu mathunga */}
 <BrandLogo
   size="lg" 
   variant="light"
@@ -68,13 +58,6 @@ export const Header: React.FC<HeaderProps> = ({
 
           </div>
         </div>
-
-        {/* =========================================================================
-            2. MIDDLE / CENTER
-            - Mobile: Centered Responsive Brand Logo (Maximized prominence on mobile, zero artificial margins)
-            - Tablet & Desktop: Centered Navigation Links with clean underline
-           ========================================================================= */}
-        {/* Mobile Centered Brand (Perfect for square 177x177 or custom brand logos) */}
         <div className="md:hidden flex-1 flex items-center justify-center text-center px-1 min-w-0">
           <BrandLogo
             size="header"
@@ -85,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
           />
         </div>
 
-        {/* Desktop & Tablet Centered Navigation Bar */}
+        {/* Desktop & Tablet Bar */}
         <div className="hidden md:flex flex-1 items-center justify-center px-2">
           <nav className="flex items-center space-x-3 lg:space-x-6 xl:space-x-8 2xl:space-x-12 font-1 tracking-[0.14em] lg:tracking-[0.18em] 2xl:tracking-[0.24em] uppercase font-medium text-[#EBDEBE] whitespace-nowrap text-xs lg:text-sm xl:text-base 2xl:text-lg">
             <button
@@ -149,12 +132,6 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </nav>
         </div>
-
-        {/* =========================================================================
-            3. RIGHT CORNER
-            - Mobile: BOOK button (Exact same h-10, shape, and width as left MENU button)
-            - Desktop: TELL YOUR STORY button
-           ========================================================================= */}
         <div className="flex items-center justify-end flex-shrink-0">
           <button
             onClick={onOpenEnquiry}
