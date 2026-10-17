@@ -67,7 +67,7 @@ export const ABOUT_DATA: AboutSectionData = {
   image2: 'https://ik.imagekit.io/p00v/images/about/co-founder_Irfan.jpg?updatedAt=1792098033624?tr=w-1200,q-80,f-auto',
   image2Alt: 'Wedding couple portrait photoshoot',
 
-  founder: 'Karthi Subramani',
+  founder: 'Karthick Subramani',
   founderLabel: 'Founder',
   Cofounder: 'Irfan',
   CofounderLabel: 'Co-founder',
