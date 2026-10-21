@@ -37,6 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
       }`}
     >
       <div className="w-full max-w-7xl 2xl:max-w-[1700px] 3xl:max-w-[2200px] mx-auto flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-4 lg:gap-6">
+        
         <div className="flex items-center justify-start flex-shrink-0">
           <button
             onClick={onOpenSidebar}
@@ -48,7 +49,9 @@ export const Header: React.FC<HeaderProps> = ({
               MENU
             </span>
           </button>
+
           <div className="hidden md:flex items-center p-0 m-0">
+  
 <BrandLogo
   size="lg" 
   variant="light"
@@ -58,6 +61,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           </div>
         </div>
+
         <div className="md:hidden flex-1 flex items-center justify-center text-center px-1 min-w-0">
           <BrandLogo
             size="header"
@@ -68,7 +72,6 @@ export const Header: React.FC<HeaderProps> = ({
           />
         </div>
 
-        {/* Desktop & Tablet Bar */}
         <div className="hidden md:flex flex-1 items-center justify-center px-2">
           <nav className="flex items-center space-x-3 lg:space-x-6 xl:space-x-8 2xl:space-x-12 font-1 tracking-[0.14em] lg:tracking-[0.18em] 2xl:tracking-[0.24em] uppercase font-medium text-[#EBDEBE] whitespace-nowrap text-xs lg:text-sm xl:text-base 2xl:text-lg">
             <button
@@ -132,10 +135,11 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </nav>
         </div>
+
         <div className="flex items-center justify-end flex-shrink-0">
           <button
             onClick={onOpenEnquiry}
-            className="flex items-center justify-center space-x-1.5 h-10 px-3 xs:px-3.5 sm:px-4.5 2xl:px-6 rounded-full bg-[#BD9C7A] text-[#2C251E] font-bold font-10 tracking-[0.1em] xs:tracking-[0.14em] uppercase cursor-pointer hover:bg-[#A38362] hover:scale-105 transition-all shadow-md active:scale-95 whitespace-nowrap text-xs shrink-0 min-w-[76px] xs:min-w-[82px] md:min-w-0"
+            className="flex items-center justify-center space-x-1.5 h-10 px-3 xs:px-3.5 sm:px-4.5 2xl:px-6 rounded-full glass-mild-pill text-[#2C251E] font-bold font-10 tracking-[0.1em] xs:tracking-[0.14em] uppercase cursor-pointer hover:bg-[#A38362] hover:scale-105 transition-all shadow-md active:scale-95 whitespace-nowrap text-xs shrink-0 min-w-[76px] xs:min-w-[82px] md:min-w-0"
             title="Book Consultation - Tell Your Story"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#2C251E] fill-[#2C251E] shrink-0" />
