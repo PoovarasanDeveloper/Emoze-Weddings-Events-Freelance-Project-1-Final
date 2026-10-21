@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { CategoryType, WeddingGalleryItem } from '../types';
 import { GALLERY_ITEMS } from '../data/weddingData';
 import { Sparkles, Play, Eye, Maximize2, MapPin, Film, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import ornateBannerImg from '../assets/banner_ornate_transparent.png';
 
 interface WeddingGalleryProps {
   onSelectItem: (item: WeddingGalleryItem) => void;
@@ -18,10 +19,24 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
   const [cardPhotoIndices, setCardPhotoIndices] = useState<Record<string, number>>({});
   const categoryScrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollCategories = (direction: 'left' | 'right') => {
-    if (categoryScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -220 : 220;
-      categoryScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  const categoryBtnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const handleCategoryNav = (direction: 'left' | 'right') => {
+    const currentIndex = categories.findIndex((c) => c.id === selectedCategory);
+    if (currentIndex === -1) return;
+
+    const newIndex =
+      direction === 'left'
+        ? (currentIndex - 1 + categories.length) % categories.length
+        : (currentIndex + 1) % categories.length;
+
+    const nextCategory = categories[newIndex];
+    setSelectedCategory(nextCategory.id);
+
+    // Scroll selected category into view
+    const targetBtn = categoryBtnRefs.current[nextCategory.id];
+    if (targetBtn && categoryScrollRef.current) {
+      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   };
 
@@ -65,11 +80,13 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
 
   return (
     <section id="gallery" className="py-10 sm:py-12 lg:py-14 bg-[#F3F0DD] text-[#2C251E] relative overflow-hidden scroll-mt-16 md:scroll-mt-20">
+
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#BD9C7A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[#B8C19C]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-[96%] sm:max-w-7xl 2xl:max-w-[1850px] 3xl:max-w-[2200px] mx-auto px-2 xs:px-2.5 sm:px-4 lg:px-6 2xl:px-8 relative z-10">
-                <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-2.5 mb-4 sm:mb-6 px-2">
+        
+        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-2.5 mb-4 sm:mb-6 px-2">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-mild-pill text-[#546135] font-10 tracking-[0.22em] uppercase font-semibold text-[10px] sm:text-xs">
             <Sparkles className="w-3 h-3 text-[#546135]" />
             <span>Curated Portfolio</span>
@@ -81,35 +98,54 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
             Every couple has a unique story to tell. Experience our signature candid storytelling through our timeless wedding portfolios.
           </p>
         </div>
+
         <div className="flex items-center justify-center w-full pb-3 sm:pb-4 border-b border-[#EBDEBE] mb-4 sm:mb-5">
+          
           <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 w-full max-w-5xl mx-auto">
             <button
-              onClick={() => scrollCategories('left')}
+              onClick={() => handleCategoryNav('left')}
               className="flex p-1.5 sm:p-2 rounded-full glass-mild text-[#5E5344] hover:bg-[#BD9C7A] hover:text-[#2C251E] border border-[#BD9C7A]/30 transition-all cursor-pointer shrink-0 shadow-sm active:scale-95"
-              title="Scroll categories left"
-              aria-label="Scroll left"
+              title="Previous category"
+              aria-label="Previous category"
             >
               <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
             <div
               ref={categoryScrollRef}
-              className="overflow-x-auto py-1 sm:py-1.5 px-1 scroll-smooth no-scrollbar max-w-full"
+              className="overflow-x-auto py-1.5 sm:py-2 px-1 scroll-smooth no-scrollbar max-w-full"
             >
-              <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 p-1 min-w-max mx-auto">
+              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 p-1 min-w-max mx-auto">
                 {categories.map((cat) => {
                   const isActive = selectedCategory === cat.id;
                   return (
                     <button
                       key={cat.id}
-                      onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-3 sm:px-4.5 py-1.5 sm:py-2 rounded-full font-10 tracking-[0.14em] sm:tracking-[0.16em] uppercase font-semibold text-xs whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                      ref={(el) => {
+                        categoryBtnRefs.current[cat.id] = el;
+                      }}
+                      onClick={() => {
+                        setSelectedCategory(cat.id);
+                        const targetBtn = categoryBtnRefs.current[cat.id];
+                        if (targetBtn && categoryScrollRef.current) {
+                          targetBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                      }}
+                      className={`relative font-10 tracking-[0.14em] sm:tracking-[0.16em] uppercase text-xs whitespace-nowrap cursor-pointer select-none h-10 inline-flex items-center justify-center border-0 border-none outline-none ring-0 focus:outline-none focus:ring-0 shadow-none bg-transparent transition-colors duration-150 ${
                         isActive
-                          ? 'bg-[#BD9C7A] text-[#2C251E] shadow-md ring-2 ring-[#BD9C7A] ring-offset-2 ring-offset-[#F3F0DD]'
-                          : 'glass-mild text-[#5E5344] hover:bg-[#E2E7BD] hover:text-[#2C251E] border border-[#BD9C7A]/30'
+                          ? 'text-[#2C251E] font-bold px-6 sm:px-7'
+                          : 'text-[#615546] font-medium hover:text-[#2C251E] hover:bg-[#BD9C7A]/10 px-4 sm:px-5 rounded-md'
                       }`}
                     >
-                      {cat.label}
+                      {isActive && (
+                        <img
+                          src={ornateBannerImg}
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0"
+                        />
+                      )}
+                      <span className="relative z-10 pointer-events-none">{cat.label}</span>
                     </button>
                   );
                 })}
@@ -117,16 +153,17 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
             </div>
 
             <button
-              onClick={() => scrollCategories('right')}
+              onClick={() => handleCategoryNav('right')}
               className="flex p-1.5 sm:p-2 rounded-full glass-mild text-[#5E5344] hover:bg-[#BD9C7A] hover:text-[#2C251E] border border-[#BD9C7A]/30 transition-all cursor-pointer shrink-0 shadow-sm active:scale-95"
-              title="Scroll categories right"
-              aria-label="Scroll right"
+              title="Next category"
+              aria-label="Next category"
             >
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
 
         </div>
+
         {filteredItems.length === 0 ? (
           <div className="text-center py-16 glass-mild-card border border-[#EBDEBE] rounded-2xl">
             <p className="font-7 text-[#615546]">No stories found matching your filter.</p>
@@ -162,7 +199,9 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                       loading="lazy"
                       decoding="async"
                     />
+
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2C251E]/80 via-transparent to-[#2C251E]/20 opacity-70 group-hover:opacity-90 transition-opacity" />
+
                     <div className="absolute top-2 left-2 right-2 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
                       <span className="px-2 py-0.5 rounded-full font-10 font-semibold tracking-[0.12em] uppercase glass-mild-dark text-[#EBDEBE]/95 border border-[#BD9C7A]/30 text-[8px] xs:text-[9px] sm:text-[10px] whitespace-nowrap shadow-md inline-flex items-center pointer-events-auto">
                         {item.categoryLabel}
@@ -195,6 +234,7 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                         </button>
                       </>
                     )}
+
                     <div className="absolute inset-x-0 bottom-1.5 sm:bottom-2 flex items-center justify-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 z-20 pointer-events-auto opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-2 sm:group-hover:translate-y-0">
                       {item.hasVideo && item.videoUrl && (
                         <button
@@ -230,10 +270,12 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
                         </span>
                       </button>
                     </div>
+
                     <div className="absolute bottom-2 right-2 sm:bottom-auto sm:top-2 sm:right-2 z-10 px-1.5 py-0.5 rounded-md glass-mild-dark font-10 text-[#EBDEBE] text-[8px] xs:text-[9px] pointer-events-none hidden sm:block">
                       Photo {activeImgIdx + 1} of {item.images.length}
                     </div>
                   </div>
+
                   <div className="p-2.5 xs:p-3 sm:p-3.5 lg:p-4 space-y-1 sm:space-y-1.5 flex-1 flex flex-col justify-between" onClick={() => onSelectItem(item)}>
                     <div className="space-y-0.5 sm:space-y-1">
                       <div className="flex items-center space-x-1 sm:space-x-1.5 font-10 text-[#8C7152] uppercase tracking-wider text-[9px] xs:text-[10px] sm:text-xs">
@@ -270,4 +312,3 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
     </section>
   );
 };
-
